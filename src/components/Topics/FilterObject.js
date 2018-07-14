@@ -32,14 +32,21 @@ class FilterObjects extends Component {
     }
     
     handleChange(e) {
+        console.log(e.target.value)
         this.setState({
             userInput: e.target.value
         })
     }
 
     handleClick() {
+      let filteredArr = [];
+        for (let i = 0; i < this.state.unFilteredArray.length; i++) {
+          if (this.state.unFilteredArray[i].hasOwnProperty(this.state.userInput)) {
+              filteredArr.push(this.state.unFilteredArray[i]);
+          }
+        } 
         this.setState({
-            filteredArray: '1, 2, 3',
+            filteredArray: filteredArr,
         })
     }
     
@@ -50,7 +57,7 @@ class FilterObjects extends Component {
               <span className="puzzleText"> {JSON.stringify(this.state.unFilteredArray)}</span>
               <input onChange={this.handleChange} className="inputLine"></input>
               <button onClick={this.handleClick} className="confirmationButton"></button>
-              <span className="resultsBox filterObjectRB"> {JSON.stringify(this.state.filteredArray)}</span>
+              <span className="resultsBox filterObjectRB"> Filtered = {JSON.stringify(this.state.filteredArray)}</span>
             </div>
         )
     }

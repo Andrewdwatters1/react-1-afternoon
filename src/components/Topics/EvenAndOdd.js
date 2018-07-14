@@ -22,12 +22,16 @@ class EvensAndOdds extends Component {
     }
 
     handleClick() { // *** THIS FUNCTION NOT PERFECT *****
-    let nowArray = this.state.userInput.split("");
-    parseInt(nowArray); 
-    let evens = (nowArray.filter((e) => e % 2 === 0)) + ",";
-    evens = evens.slice(0, -1)
-    let odds = (nowArray.filter((e) => e % 2 === 1)) + ","; 
-    odds = odds.slice(0, -1)
+    let nowArray = this.state.userInput.split(",");
+    let evens = [];
+    let odds = [];
+    for (let i = 0; i < nowArray.length; i++) {
+        if (nowArray[i] % 2 === 0) {
+            evens.push(parseInt(nowArray[i], 10) + ",");
+        } else if (nowArray[i] % 2 === 1) {
+            odds.push(parseInt(nowArray[i], 10) + ",");
+        }
+    } 
         this.setState({
             evenArray: evens,
             oddArray: odds
