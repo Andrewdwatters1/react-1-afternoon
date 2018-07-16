@@ -27,9 +27,9 @@ class EvensAndOdds extends Component {
     let odds = [];
     for (let i = 0; i < nowArray.length; i++) {
         if (nowArray[i] % 2 === 0) {
-            evens.push(parseInt(nowArray[i], 10) + ",");
+            evens.push(parseInt(nowArray[i], 10));
         } else if (nowArray[i] % 2 === 1) {
-            odds.push(parseInt(nowArray[i], 10) + ",");
+            odds.push(parseInt(nowArray[i], 10));
         }
     } 
         this.setState({
@@ -45,8 +45,8 @@ class EvensAndOdds extends Component {
               <h4>Evens and Odds</h4>
               <input onChange={this.handleChange} className="inputLine"></input>
               <button onClick={this.handleClick} className="confirmationButton">Split</button>
-              <span className="resultsBox">Evens: [{this.state.evenArray}]</span>
-              <span className="resultsBox">Odds: [{this.state.oddArray}]</span>
+              <span className="resultsBox">Evens: {JSON.stringify(this.state.evenArray)}</span>
+              <span className="resultsBox">Odds: {JSON.stringify(this.state.oddArray)}</span>
             </div>
         )
     }

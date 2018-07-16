@@ -22,7 +22,7 @@ class FilterObjects extends Component {
                 "species": "Monkey",
                 "crazy": true,
                 "regrets": 0,
-                "lit AF?": "Always"
+                "lit AF?": "always"
             }],
             userInput: '',
             filteredArray: [],
