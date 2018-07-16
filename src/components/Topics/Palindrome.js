@@ -1,37 +1,45 @@
 import React, { Component } from 'react';
 
 class Palindrome extends Component {
+    constructor() {
+        super()
+        this.state = {
+            userInput: "",
+            palindrome: ""
+        }
+    }
+    
+    handleChange = (e) => {
+        this.setState({
+            userInput: e.target.value
+        })
+    }
+    handleClick = () => {
+        let inputArr = this.state.userInput.split("");
+        inputArr = inputArr.reverse();
+        let reversed = inputArr.join("");
+        let result;
+        if (this.state.userInput === reversed) {
+            result = 'true';
+        } else {
+            result = 'false';
+        }
+            this.setState({
+                palindrome: result
+            })
+        
+    }
+    
     render() {
         return (
-            <p>Palindrome Component</p>
+            <div className="puzzleBox filterStringPB">
+                <h4>Palindrome Finder</h4>
+                <input onChange={this.handleChange} className="inputLine"></input>
+                <button onClick={this.handleClick} className="confirmationButton"></button>
+                <span className="resultsBox"> Palindrome: {this.state.palindrome} </span>
+            </div>
         )
     }
 }
 
 export default Palindrome;
-
-// Summary
-// In this step, we'll build out the Palindrome component.
-
-// Instructions
-// The problem summary: Using a given string, determine if it is spelt the same backwards as it is forwards.
-
-// The component outline: One parent div element, one h4 element, one input element, one button element, and one span element.
-
-// Open src/components/Topics/Palindrome.js.
-// Remove the <p> element from the return of the render method.
-// Add the component outline to the return of the render method.
-// Add the following className props to the outline:
-// div - className="puzzleBox filterStringPB"
-// input - className="inputLine"
-// button - className="confirmationButton"
-// span - className="resultsBox"
-// Assign the h4 element the value of "Palindrome".
-// Create a constructor method that creates an initial state:
-// userInput - This should default to an empty string.
-// palindrome - This should default to an empty string.
-// Create an onChange prop for the input element that updates the value of userInput on state.
-// Create an onClick prop for the button element that calls a method on the class:
-// This method should solve the toy problem.
-// This method should update the value of palindrome.
-// Assign the span element the value of palindrome

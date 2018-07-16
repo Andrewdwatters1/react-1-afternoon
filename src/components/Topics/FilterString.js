@@ -40,7 +40,7 @@ class FilterString extends Component {
     render() {
         return (
             <div className="puzzleBox filterStringPB">
-              <h4>Filter Months </h4>
+              <h4>Month Filter </h4>
               <span className="puzzleText"> { JSON.stringify(this.state.unFilteredArray, null, 10) } </span>
               <input onChange={ this.handleChange } className="inputLine"></input>
               <button onClick={this.handleClick} className="confirmationButton"></button>
@@ -52,18 +52,3 @@ class FilterString extends Component {
 
 
 export default FilterString;
-
-// Instructions
-// The problem summary: Using a pre-determined array of strings, filter out strings that do not contain a given string. 
-// Display a new array populated with the strings that do contain the given string.
-
-// Create a constructor method that creates an initial state:
-// unFilteredArray - This should default to an array of strings. You choose what strings go in the array.
-// userInput - This should default to an empty string.
-// filteredArray - This should default to an empty array.
-// Create an onChange prop for the input element that updates the value of userInput on state.
-// Create an onClick prop for the button element that calls a method on the class:
-// This method should solve the toy problem.
-// This method should update the value of filteredArray.
-// Assign the first span element the value of unFilteredArray.
-// Assign the last span element the value of filteredArray.
